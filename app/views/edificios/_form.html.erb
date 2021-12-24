@@ -1,0 +1,36 @@
+<div class = 'container'>
+  <%= form_with(model: edificio) do |form| %>
+    <% if edificio.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(edificio.errors.count, "error") %> prohibited this edificio from being saved:</h2>
+
+        <ul>
+          <% edificio.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <label for='nombreEdificio'> <%= form.label :nombre_de_edificio %> </label>
+      <%= form.text_field :nombre_de_edificio, {id: 'nombreEdificio', class: 'form-control'} %>
+    </div>
+
+    <div class="form-group">
+      <label for='direccionEdificio'><%= form.label :direccion %></label>
+      <%= form.text_field :direccion, {id: 'direccionEdificio', class: 'form-control'}  %>
+    </div>
+
+    <div class="form-group">
+      <label for='ciudadEdificio'><%= form.label :ciudad %></label>
+      <%= form.text_field :ciudad, {id: 'ciudadEdificio', class: 'form-control'}  %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Crear Edificio', :class => 'btn btn-success'%>
+    </div>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', edificios_path %>
+</div>

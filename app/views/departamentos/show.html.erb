@@ -1,0 +1,15 @@
+<%= render 'layouts/navbar' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Número de departamento:</strong>
+  <%= @departamento.numero_de_departamento %>
+</p>
+
+<p>
+  <strong>Edificio:</strong>
+  <%= @departamento.edificio_id %>
+</p>
+
+<%= link_to 'Edit', edit_departamento_path(@departamento) %> |
+<%= link_to 'Back', departamentos_path %>

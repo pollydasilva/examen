@@ -1,0 +1,44 @@
+<%= render 'layouts/navbar' %>
+
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1>Departamentos</h1>
+</div>
+
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Número de departamento</th>
+        <th>Edificio</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @departamentos.each do |departamento| %>
+        <tr>
+          <td><%= departamento.numero_de_departamento %></td>
+          <td><%= departamento.edificio_id %></td>
+          <td><button type="button" class="btn btn-outline-success btn-sm"><%= link_to 'Mostrar', departamento %></button></td>
+          <td><button type="button" class="btn btn-outline-success btn-sm"><%= link_to 'Editar', edit_departamento_path(departamento) %></button></td>
+          <td><button type="button" class="btn btn-outline-success btn-sm"><%= link_to 'Eliminar', departamento, method: :delete, data: { confirm: '¿Está seguro?' } %></button></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<div class='container'>
+  <a 
+    class="btn btn-success btn-lg btn-block" 
+    style='color: #FFF !important'
+    href="/departamentos/new">
+    Crea un nuevo Departamento
+  </a>
+</div>
+
+<%= render 'layouts/footer' %>
